@@ -44,3 +44,31 @@ plot(l2011$B4_sre, col=cl)
 nir <- l2011[[4]]
 #oppure
 nir <- l2011$B4_sre
+
+#info on function
+?nomefunzione
+
+#RGB plotting: si inserisce l'immagine, le bande e lo stretch 
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin")
+#si evidenzia la vegetazione con la quarta banda impostando la sua visualizzazione con il colore rosso.
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
+#si evidenzia la vegetazione con la quarta banda impostando la sua visualizzazione con il colore verde.
+plotRGB(l2011, r=3, g=4, b=2, stretch="lin")
+#evidenziamento del suolo nudo in giallo. Le immagini così create vengono dette in falso colore.
+plotRGB(l2011, r=3, g=2, b=4, stretch="lin")
+
+#crea una disposizione grafica con 2 righe e una colonna in cui è rappresentata la immagine a colore naturale e una in falsocolore rosso.
+par(mfrow=c(2,1))
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin")
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
+
+#qui si utilizza uno strerch più forte che è quello a istogrammi. Questo permette di vedere zone che nelle immagini precedenti non si vedevano.
+par(mfrow=c(2,1))
+plotRGB(l2011, r=3, g=2, b=1, stretch="Hist")
+plotRGB(l2011, r=4, g=3, b=2, stretch="Hist")
+
+#confronto tra stretch lineare e a istogrammi.
+par(mfrow=c(2,1))
+plotRGB(l2011, r=4, g=3, b=2, stretch="Lin")
+plotRGB(l2011, r=4, g=3, b=2, stretch="Hist")
+
